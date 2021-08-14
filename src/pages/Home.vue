@@ -1,12 +1,7 @@
 <template>
-  <el-container>
-    <el-header>Header</el-header>
-    <el-container>
-      <el-main>
-      </el-main>
-    </el-container>
-    <el-footer>Footer</el-footer>
-  </el-container>
+  <div>
+    home
+  </div>
 </template>
 
 <script>
@@ -26,14 +21,5 @@ export default {
 </script>
 
 <style scoped>
-  .el-header {
-    background-color: gold;
-  }
-  .el-main {
-    height: 500px;
-    background-color: goldenrod;
-  }
-  .el-footer {
-    background-color: greenyellow;
-  }
+
 </style>
