@@ -38,7 +38,8 @@ export default {
     background-color: #003399;
   }
   .el-main {
-    height: 1000px;
+    min-height: 800px;
+    overflow: hidden;
     background-color: #d5e9ee;
   }
   .el-footer {

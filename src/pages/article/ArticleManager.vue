@@ -1,5 +1,6 @@
 <template>
   <div>
+    <el-button @click="addArtcile">新增文章</el-button>
     <article-item
       v-for="item in articleList"
       :key="item.id"
@@ -23,6 +24,9 @@ export default {
     }
   },
   methods: {
+    addArtcile () {
+      this.$router.push('/article/add')
+    }
   },
   async created () {
     try {

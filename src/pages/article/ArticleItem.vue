@@ -5,7 +5,7 @@
       <span>{{article.title}}</span>
     </div>
     <div>{{article.content}}</div>
-    <el-button style="float: right; padding: 3px 0" type="text">阅读全文</el-button>
+    <el-button style="float: right; padding: 3px 0" type="text" @click="getDetail(article.id)">阅读全文</el-button>
   </el-card>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     article: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    getDetail (id) {
+      this.$router.push({ path: '/article/create', query: { articleId: id } })
     }
   }
 }
