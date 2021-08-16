@@ -15,7 +15,12 @@ export default {
   name: 'ArticleDetial',
   data () {
     return {
-      article: null
+      article: {
+        title: '',
+        author: '',
+        content: '',
+        category: ''
+      }
     }
   },
   computed: {

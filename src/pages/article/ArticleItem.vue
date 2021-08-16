@@ -4,7 +4,7 @@
       <div class="category">{{article.category}}</div>
       <span>{{article.title}}</span>
     </div>
-    <div>{{article.content}}</div>
+    <div>{{article.desc}}</div>
     <el-button style="float: right; padding: 3px 0" type="text" @click="getDetail(article.id)">阅读全文</el-button>
   </el-card>
 </template>

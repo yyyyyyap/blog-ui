@@ -8,11 +8,11 @@ export default {
     })
   },
 
-  getArticle (query) {
+  getArticle (params) {
     return http({
       url: '/article/find',
       method: 'get',
-      params: query
+      params: params
     })
   },
 

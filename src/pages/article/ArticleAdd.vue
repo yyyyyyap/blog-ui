@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-input v-model="article.title" placeholder="文章标题"></el-input>
+    <el-input v-model="article.desc" placeholder="文章简介"></el-input>
     <el-input v-model="article.author" placeholder="文章作者"></el-input>
     <el-input type="textarea" v-model="article.content" placeholder="文章内容"></el-input>
     <el-input v-model="article.category" placeholder="文章分类"></el-input>
@@ -17,6 +18,7 @@ export default {
     return {
       article: {
         title: '',
+        desc: '',
         author: '',
         content: '',
         category: ''
