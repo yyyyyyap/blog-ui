@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const service = axios.create({
   // 基础的请求地址, 放到服务器的话需要把地址改为/api/
+  // baseURL: '/api/',
   baseURL: 'http://1.15.139.29/api/',
   // 设置超时时间 5s
   timeout: 5000

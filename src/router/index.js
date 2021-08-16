@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
-import ArticleManager from '@/pages/article/ArticleManager'
-import ArticleAdd from '@/pages/article/ArticleAdd'
-import ArticleDetail from '@/pages/article/ArticleDetail'
+// import ArticleManager from '@/pages/article/ArticleManager'
+// import ArticleAdd from '@/pages/article/ArticleAdd'
+// import ArticleDetail from '@/pages/article/ArticleDetail'
+
+const ArticleManager = () => import('@/pages/article/ArticleManager')
+const ArticleAdd = () => import('@/pages/article/ArticleAdd')
+const ArticleDetail = () => import('@/pages/article/ArticleDetail')
 
 Vue.use(Router)
 
