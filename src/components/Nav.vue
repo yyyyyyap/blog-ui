@@ -30,5 +30,7 @@ export default {
 </script>
 
 <style scoped>
-
+  navBar {
+    opacity: 0.5;
+  }
 </style>

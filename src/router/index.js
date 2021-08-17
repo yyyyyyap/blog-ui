@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/pages/Home'
+import Home from '@/pages/home/Home'
 // import ArticleManager from '@/pages/article/ArticleManager'
 // import ArticleAdd from '@/pages/article/ArticleAdd'
 // import ArticleDetail from '@/pages/article/ArticleDetail'
