@@ -76,7 +76,8 @@ export default {
 
   .el-menu--horizontal li {
     float: right;
-    width: 15%;
+    width: 80px;
+    padding: 0px;
     text-align: center;
   }
 

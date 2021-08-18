@@ -45,6 +45,7 @@ export default {
 <style scoped>
   #contentContainer {
     max-width: 1200px;
+    min-height: 500px;
     margin: 0 auto;
     padding: 0 2%;
   }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <el-button @click="addArtcile">新增文章</el-button>
+      <!-- <el-button @click="addArtcile">新增文章</el-button> -->
       <article-item
         v-for="item in articleList"
         :key="item.id"

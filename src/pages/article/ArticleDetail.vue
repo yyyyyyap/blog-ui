@@ -8,7 +8,7 @@
 import marked from 'marked'
 import highlightJS from 'highlight.js'
 import articleApi from '@/api/article'
-import 'highlight.js/styles/monokai-sublime.css'
+import 'highlight.js/styles/github.css'
 
 import Header from '@/components/Header.vue'
 
@@ -67,13 +67,22 @@ export default {
 }
 </script>
 
-<style scoped>
-  /* .mdContainer code {
-    background: black;
-  } */
-
-  #mdContainer pre {
-    padding: 5px;
-    background: gray;
+<style>
+  #mdContainer code {
+    background: #eee;
   }
+
+  #mdContainer pre{
+    background: #eee;
+    padding: 5px;
+  }
+
+  #mdContainer pre code{
+    background: none;
+  }
+
+  #mdContainer .hljs-title{
+    color: black;
+  }
+
 </style>

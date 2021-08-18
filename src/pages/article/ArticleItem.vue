@@ -1,11 +1,12 @@
 <template>
   <el-card class="box-card" shadow="hover">
-    <div slot="header" class="clearfix">
-      <div class="category">{{article.category}}</div>
-      <span>{{article.title}}</span>
+    <div slot="header" class="head">
+      <div class="categoryCon"></div>
+      <p class="category">{{article.category}}</p>
+      <h3 class="title">{{article.title}}</h3>
     </div>
     <div>{{article.desc}}</div>
-    <el-button style="float: right; padding: 3px 0" type="text" @click="getDetail(article.id)">阅读全文</el-button>
+    <el-button type="text" class="detailBtn" @click="getDetail(article.id)">阅读全文</el-button>
   </el-card>
 </template>
 
@@ -30,19 +31,43 @@ export default {
   .box-card {
     margin: 20px;
     position: relative;
+    background: rgba(245, 245, 245, 0.6);
   }
 
-  .clearfix {
+  .head {
     text-align: center;
+    font-weight: bold;
+  }
+
+  .categoryCon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-left: 60px solid #666;
+    border-bottom: 30px solid transparent;
+  }
+
+  .title {
+    margin: 0px;
   }
 
   .category {
     position: absolute;
-    left: 10px;
+    left: 5px;
     top: 2px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    background-color: #eee;
+    color: white;
+  }
+
+  .detailBtn {
+    float: right;
+    margin: 10px 0;
+    color: #000
+  }
+
+  .detailBtn:hover {
+    color: rgba(102, 102, 102, 0.6);
   }
 </style>
