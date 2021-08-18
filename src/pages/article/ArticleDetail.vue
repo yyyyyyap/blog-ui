@@ -68,6 +68,12 @@ export default {
 </script>
 
 <style>
+  #mdContainer {
+    background: #fff;
+    padding: 1% 2%;
+    box-shadow: 1px 1px 1px #eee;
+  }
+
   #mdContainer code {
     background: #eee;
   }

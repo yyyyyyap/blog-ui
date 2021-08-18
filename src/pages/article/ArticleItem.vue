@@ -29,9 +29,9 @@ export default {
 
 <style scoped>
   .box-card {
-    margin: 20px;
+    margin-bottom: 20px;
     position: relative;
-    background: rgba(245, 245, 245, 0.6);
+    /* background: rgba(245, 245, 245, 0.6); */
   }
 
   .head {

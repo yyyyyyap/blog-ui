@@ -15,6 +15,6 @@ export default {
 <style scoped>
   #footContainer {
     background-color: #333;
-    min-height: 200px;
+    min-height: 150px;
   }
 </style>
