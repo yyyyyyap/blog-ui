@@ -28,11 +28,11 @@ export default {
       routeRules: [
         {
           index: 1,
-          category: 'Article',
+          category: '文章',
           url: '/article'
         }, {
           index: 2,
-          category: 'About',
+          category: '关于',
           url: '/about'
         }
       ]

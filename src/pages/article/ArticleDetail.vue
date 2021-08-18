@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h2>{{article.title}}</h2>
-    <div class="mdContainer" v-html="compiledMarkdown"></div>
+    <div id="mdContainer" v-html="compiledMarkdown"></div>
   </div>
 </template>
 
@@ -58,7 +57,7 @@ export default {
       this.$store.commit('setHeader', {
         category: this.article.category,
         maintitle: this.article.title,
-        date: this.article.createdAt
+        date: '创建于：' + this.article.createdAt
       })
       console.log(this.article)
     } catch (error) {
@@ -68,8 +67,12 @@ export default {
 }
 </script>
 
-<style>
-  .mdContainer pre {
+<style scoped>
+  /* .mdContainer code {
+    background: black;
+  } */
+
+  #mdContainer pre {
     padding: 5px;
     background: gray;
   }

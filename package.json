@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "bundle-report": "webpack-bundle-analyzer --port 8123 dist/stats.json"
+    "report": "webpack-bundle-analyzer --port 8123 dist/stats.json"
   },
   "dependencies": {
     "axios": "^0.21.1",

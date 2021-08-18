@@ -14,17 +14,22 @@
         <p>{{$store.state.headerContent.date}}</p>
       </template>
     </Header>
-    <router-view></router-view>
+    <div id="contentContainer">
+      <router-view></router-view>
+    </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'ArticleMain',
   components: {
-    Header
+    Header,
+    Footer
   },
   data () {
     return {
@@ -38,5 +43,9 @@ export default {
 </script>
 
 <style scoped>
-
+  #contentContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2%;
+  }
 </style>

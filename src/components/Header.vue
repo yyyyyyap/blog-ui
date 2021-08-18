@@ -2,7 +2,7 @@
   <div id="headContainer">
     <el-row>
       <el-col :span="12">
-        <p id="blogId">Yap</p>
+        <p id="blogId">Yap-Blog</p>
       </el-col>
       <el-col :span="12">
         <el-menu
@@ -24,10 +24,12 @@
         </el-menu>
       </el-col>
     </el-row>
-    <div id="head-category"><slot name="category"></slot></div>
-    <div id="head-maintitle"><slot name="maintitle"></slot></div>
-    <div id="head-subtitle"><slot name="subtitle"></slot></div>
-    <div id="head-date"><slot name="date"></slot></div>
+    <div id="head-content">
+      <div id="head-category"><slot name="category"></slot></div>
+      <div id="head-maintitle"><slot name="maintitle"></slot></div>
+      <div id="head-subtitle"><slot name="subtitle"></slot></div>
+      <div id="head-date"><slot name="date"></slot></div>
+    </div>
   </div>
 </template>
 
@@ -56,9 +58,11 @@ export default {
   #headContainer {
     background-color: #333;
     min-height: 300px;
+    position: relative;
   }
 
   #blogId {
+    font-weight: bold;
     margin: 0px;
     padding: 0 20px;
     line-height: 60px;
@@ -76,9 +80,30 @@ export default {
     text-align: center;
   }
 
-  #head-maintitle {
-    text-align: center;
+  #head-content {
+    width: 500px;
     color: #fff;
-    margin-top: 50px;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+
+  #head-category {
+    text-align: initial;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  #head-category p{
+    margin: 0px;
+    text-decoration: underline;
+  }
+
+  #head-maintitle h1{
+    margin: 0px;
+  }
+
 </style>

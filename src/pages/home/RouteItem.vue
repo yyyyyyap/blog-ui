@@ -1,6 +1,6 @@
 <template>
   <button id="itemContainer" @click="handleLinkClick">
-    <p style="text-decoration: underline">{{routeRule.category}}</p>
+    <p>{{routeRule.category}}</p>
   </button>
 </template>
 
