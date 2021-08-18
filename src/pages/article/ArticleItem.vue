@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     getDetail (id) {
-      this.$router.push({ path: '/article/create', query: { articleId: id } })
+      this.$router.push({ path: '/article/detail', query: { articleId: id } })
     }
   }
 }

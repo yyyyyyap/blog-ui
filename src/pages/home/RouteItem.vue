@@ -1,6 +1,5 @@
 <template>
   <button id="itemContainer" @click="handleLinkClick">
-    <p>{{routeRule.index}}</p>
     <p style="text-decoration: underline">{{routeRule.category}}</p>
   </button>
 </template>
@@ -34,8 +33,6 @@ export default {
     border: 0;
     width: 100px;
     height: 100px;
-    padding: 20px;
-    padding-top: 0px;
     box-shadow: inset 0 0 0 2px #666;
     color: #666;
     font-size: 18px;

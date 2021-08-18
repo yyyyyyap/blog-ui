@@ -11,8 +11,10 @@ import highlightJS from 'highlight.js'
 import articleApi from '@/api/article'
 import 'highlight.js/styles/monokai-sublime.css'
 
+import Header from '@/components/Header.vue'
+
 export default {
-  name: 'ArticleDetial',
+  name: 'ArticleDetail',
   data () {
     return {
       article: {
@@ -22,6 +24,9 @@ export default {
         category: ''
       }
     }
+  },
+  components: {
+    Header
   },
   computed: {
     compiledMarkdown: function () {
@@ -50,6 +55,11 @@ export default {
     try {
       let {data} = await articleApi.getArticle({id: id})
       this.article = data.data
+      this.$store.commit('setHeader', {
+        category: this.article.category,
+        maintitle: this.article.title,
+        date: this.article.createdAt
+      })
       console.log(this.article)
     } catch (error) {
       console.error(error)

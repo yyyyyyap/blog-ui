@@ -5,9 +5,11 @@ import Home from '@/pages/home/Home'
 // import ArticleAdd from '@/pages/article/ArticleAdd'
 // import ArticleDetail from '@/pages/article/ArticleDetail'
 
-const ArticleManager = () => import('@/pages/article/ArticleManager')
+const ArticleMain = () => import('@/pages/article/ArticleMain.vue')
+const ArticleList = () => import('@/pages/article/ArticleList')
 const ArticleAdd = () => import('@/pages/article/ArticleAdd')
 const ArticleDetail = () => import('@/pages/article/ArticleDetail')
+const About = () => import('@/pages/about/About')
 
 Vue.use(Router)
 
@@ -15,18 +17,28 @@ export default new Router({
   mode: 'history',
   routes: [{
     path: '/',
-    redirect: '/blog/home'
+    redirect: '/home'
   }, {
-    path: '/blog/home',
+    path: '/home',
     component: Home
   }, {
     path: '/article',
-    component: ArticleManager
+    component: ArticleMain,
+    children: [{
+      path: '',
+      component: ArticleList
+    }, {
+      path: 'list',
+      component: ArticleList
+    }, {
+      path: 'add',
+      component: ArticleAdd
+    }, {
+      path: '/article/detail',
+      component: ArticleDetail
+    }]
   }, {
-    path: '/article/add',
-    component: ArticleAdd
-  }, {
-    path: '/article/create',
-    component: ArticleDetail
+    path: '/about',
+    component: About
   }]
 })
