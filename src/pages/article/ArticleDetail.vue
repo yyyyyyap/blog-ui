@@ -67,28 +67,27 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
   #mdContainer {
     background: #fff;
     padding: 1% 2%;
     box-shadow: 1px 1px 1px #eee;
-  }
-
-  #mdContainer code {
-    background: #eee;
-  }
-
-  #mdContainer pre{
-    background: #eee;
-    padding: 5px;
-  }
-
-  #mdContainer pre code{
-    background: none;
-  }
-
-  #mdContainer .hljs-title{
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    code {
+      background: #eee;
+    }
+    pre {
+      background: #eee;
+      padding: 5px;
+      code {
+        background: none;
+      }
+    }
+    .hljs-title{
     color: black;
+    }
   }
-
 </style>

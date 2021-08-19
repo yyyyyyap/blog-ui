@@ -37,5 +37,13 @@ export default {
       method: 'get',
       params: params
     })
+  },
+
+  getBatchArticle (params) {
+    return http({
+      url: '/article/getBatchArticle',
+      method: 'get',
+      params: params
+    })
   }
 }

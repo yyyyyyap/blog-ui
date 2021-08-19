@@ -12,6 +12,10 @@
       <div><slot name="category"></slot></div>
       <div><slot name="search"></slot></div>
     </div>
+    <div id="sidebar-list">
+      <div><slot name="latestlist"></slot></div>
+      <div><slot name="updatelist"></slot></div>
+    </div>
   </div>
 </template>
 
@@ -20,7 +24,7 @@ export default {
   name: 'Sidebar',
   data () {
     return {
-      iconUrl: 'https://raw.githubusercontent.com/yyyyyyap/MarkdownPhoto/master/front-end/alternate-box-model.png'
+      iconUrl: 'https://gitee.com/yyyyyyap/image-bed/raw/master/icon.jpg'
     }
   }
 }
@@ -53,6 +57,18 @@ export default {
         justify-content:space-evenly;
       }
     }
+    #sidebar-search {
+      background-color: white;
+      box-shadow: 1px 1px 1px #eee;
+      padding: 10px;
+      margin: 10px 0;
+    }
 
+    #sidebar-list {
+      background-color: white;
+      box-shadow: 1px 1px 1px #eee;
+      padding: 10px;
+      margin: 10px 0;
+    }
   }
 </style>
