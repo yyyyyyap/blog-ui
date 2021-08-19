@@ -22,5 +22,20 @@ export default {
       method: 'post',
       data: data
     })
+  },
+
+  getArticleAmount () {
+    return http({
+      url: '/article/amount',
+      method: 'get'
+    })
+  },
+
+  searchArticle (params) {
+    return http({
+      url: '/article/searchArticle',
+      method: 'get',
+      params: params
+    })
   }
 }

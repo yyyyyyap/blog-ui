@@ -32,6 +32,14 @@ export default {
           url: '/article'
         }, {
           index: 2,
+          category: '分享',
+          url: '/share'
+        }, {
+          index: 2,
+          category: '留言',
+          url: '/comment'
+        }, {
+          index: 2,
           category: '关于',
           url: '/about'
         }
@@ -102,11 +110,11 @@ export default {
   #menuBar {
     display: flex;
     position: absolute;
-    bottom: 5%;
-    width: 60%;
+    bottom: 8%;
+    width: 50%;
     left: 50%;
     transform: translateX(-50%);
-    border-top: 2px solid #666;
+    /* border-top: 2px solid #666; */
     border-bottom: 2px solid #666;
     padding: 20px 0;
   }

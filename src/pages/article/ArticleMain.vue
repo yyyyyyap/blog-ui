@@ -14,14 +14,9 @@
         <p>{{$store.state.headerContent.date}}</p>
       </template>
     </Header>
-    <el-row id="contentContainer" style="margin: 0 auto;" :gutter="20">
-      <el-col :span="20">
-        <router-view></router-view>
-      </el-col>
-      <el-col :span="4">
-        <Sidebar></Sidebar>
-      </el-col>
-    </el-row>
+    <div id="contentContainer">
+      <router-view></router-view>
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -49,9 +44,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   #contentContainer {
-    max-width: 1600px;
+    margin: 0 auto;
+    max-width: 1400px;
     min-height: 500px;
     margin-left: 0px;
     margin-right: 0px;

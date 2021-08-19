@@ -6,6 +6,7 @@
       </el-col>
       <el-col :span="12">
         <el-menu
+          id="menu-bar"
           :default-active="activeIndex"
           mode="horizontal"
           :router=true
@@ -69,12 +70,12 @@ export default {
     color: #fff;
   }
 
-  .el-menu--horizontal {
+  #menu-bar {
     padding: 0 20px;
     border-bottom: none;
   }
 
-  .el-menu--horizontal li {
+  #menu-bar li {
     float: right;
     width: 80px;
     padding: 0px;

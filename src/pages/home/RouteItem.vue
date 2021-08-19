@@ -31,8 +31,8 @@ export default {
     margin: 0 auto;
     box-sizing: border-box;
     border: 0;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     box-shadow: inset 0 0 0 2px #666;
     color: #666;
     font-size: 18px;

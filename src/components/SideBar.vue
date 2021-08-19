@@ -1,10 +1,16 @@
 <template>
   <div id="sidebar-con">
     <!-- 显示博客的一些基本信息 -->
-    <div id="sheetCon">
-      <el-avatar :size="80" :src="iconUrl" class="icon"></el-avatar>
-      <p>Yap</p>
+    <div id="sidebar-base">
+      <el-avatar shape="square" :size="50" :src="iconUrl" class="icon"></el-avatar>
+      <el-divider></el-divider>
+      <p style="font-weight: bold">Yap</p>
       <p>hello world</p>
+      <div id="statisticBar"><slot name="statistic"></slot></div>
+    </div>
+    <div id="sidebar-search">
+      <div><slot name="category"></slot></div>
+      <div><slot name="search"></slot></div>
     </div>
   </div>
 </template>
@@ -20,11 +26,33 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
   #sidebar-con {
-    text-align:center;
     max-width: 300px;
-    margin: 0 auto;
-    background-color: white;
+    #sidebar-base {
+      text-align:center;
+      background-color: white;
+      box-shadow: 1px 1px 1px #eee;
+      margin: 0 auto;
+      padding: 10px;
+      p {
+        margin: 5px;
+      }
+      .el-avatar {
+        border: 1px solid #eee;
+      }
+      .el-divider--horizontal {
+        margin: 5px 0;
+      }
+      .el-divider--vertical {
+        height: 32px;
+      }
+      #statisticBar {
+        display: flex;
+        align-items:center;
+        justify-content:space-evenly;
+      }
+    }
+
   }
 </style>
