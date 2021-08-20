@@ -8,7 +8,7 @@ export default {
     })
   },
 
-  getArticle (params) {
+  getOneArticle (params) {
     return http({
       url: '/article/find',
       method: 'get',
@@ -42,6 +42,22 @@ export default {
   getBatchArticle (params) {
     return http({
       url: '/article/getBatchArticle',
+      method: 'get',
+      params: params
+    })
+  },
+
+  getBatchUpdatedArticle (params) {
+    return http({
+      url: '/article/getBatchUpdatedArticle',
+      method: 'get',
+      params: params
+    })
+  },
+
+  getArticle (params) {
+    return http({
+      url: '/article/getArticle',
       method: 'get',
       params: params
     })

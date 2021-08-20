@@ -52,7 +52,7 @@ export default {
   async created () {
     let id = this.$route.query.articleId
     try {
-      let {data} = await articleApi.getArticle({id: id})
+      let {data} = await articleApi.getOneArticle({id: id})
       this.article = data.data
       this.$store.commit('setHeader', {
         category: this.article.category,

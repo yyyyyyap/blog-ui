@@ -15,6 +15,8 @@
           active-text-color="#fff"
         >
           <el-menu-item index="/about">关于</el-menu-item>
+          <el-menu-item index="/comment">留言</el-menu-item>
+          <el-menu-item index="/share">分享</el-menu-item>
           <el-menu-item index="/article">文章</el-menu-item>
           <el-menu-item index="/home">首页</el-menu-item>
           <!-- <el-submenu index="/outcome">
