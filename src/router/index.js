@@ -10,6 +10,7 @@ const ArticleList = () => import('@/pages/article/ArticleList')
 const ArticleAdd = () => import('@/pages/article/ArticleAdd')
 const ArticleDetail = () => import('@/pages/article/ArticleDetail')
 const About = () => import('@/pages/about/About')
+const Comment = () => import('@/pages/comment/Comment')
 
 Vue.use(Router)
 
@@ -40,5 +41,8 @@ export default new Router({
   }, {
     path: '/about',
     component: About
+  }, {
+    path: '/comment',
+    component: Comment
   }]
 })

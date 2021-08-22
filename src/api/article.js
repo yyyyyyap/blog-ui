@@ -24,10 +24,11 @@ export default {
     })
   },
 
-  getArticleAmount () {
+  getArticleAmount (params) {
     return http({
       url: '/article/amount',
-      method: 'get'
+      method: 'get',
+      params
     })
   },
 

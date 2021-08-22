@@ -35,11 +35,11 @@ export default {
           category: '分享',
           url: '/share'
         }, {
-          index: 2,
+          index: 3,
           category: '留言',
           url: '/comment'
         }, {
-          index: 2,
+          index: 4,
           category: '关于',
           url: '/about'
         }

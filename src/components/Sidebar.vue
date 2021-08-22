@@ -62,6 +62,7 @@ export default {
       box-shadow: 1px 1px 1px #eee;
       padding: 10px;
       margin: 10px 0;
+      box-shadow: 1px 1px 1px #eee;
     }
 
     #sidebar-list {

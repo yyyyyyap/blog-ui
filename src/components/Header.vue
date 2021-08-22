@@ -57,57 +57,52 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   #headContainer {
     background-color: #333;
     min-height: 300px;
     position: relative;
+    #blogId {
+      font-weight: bold;
+      margin: 0px;
+      padding: 0 20px;
+      line-height: 60px;
+      color: #fff;
+    }
+    #menu-bar {
+      padding: 0 20px;
+      border-bottom: none;
+      li {
+        float: right;
+        width: 80px;
+        padding: 0px;
+        text-align: center;
+      }
+    }
+    #head-content {
+      width: 500px;
+      color: #fff;
+      margin: 0 auto;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      #head-category {
+        text-align: center;
+        padding: 5px;
+        width: 50px;
+        margin-left: 100px;
+        p{
+          border-radius: 5px;
+          margin: 0px;
+          background-color: #eee;
+          color: #333;
+        }
+      }
+      #head-maintitle h1{
+        margin: 0px;
+      }
+    }
   }
-
-  #blogId {
-    font-weight: bold;
-    margin: 0px;
-    padding: 0 20px;
-    line-height: 60px;
-    color: #fff;
-  }
-
-  #menu-bar {
-    padding: 0 20px;
-    border-bottom: none;
-  }
-
-  #menu-bar li {
-    float: right;
-    width: 80px;
-    padding: 0px;
-    text-align: center;
-  }
-
-  #head-content {
-    width: 500px;
-    color: #fff;
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  #head-category {
-    text-align: initial;
-    border-radius: 5px;
-    padding: 5px;
-  }
-
-  #head-category p{
-    margin: 0px;
-    text-decoration: underline;
-  }
-
-  #head-maintitle h1{
-    margin: 0px;
-  }
-
 </style>

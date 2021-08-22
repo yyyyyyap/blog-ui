@@ -15,7 +15,9 @@
       </template>
     </Header>
     <div id="contentContainer">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
     <Footer></Footer>
   </div>

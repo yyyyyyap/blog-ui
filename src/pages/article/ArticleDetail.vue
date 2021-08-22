@@ -49,7 +49,7 @@ export default {
   },
   methods: {
   },
-  async created () {
+  async activated () {
     let id = this.$route.query.articleId
     try {
       let {data} = await articleApi.getOneArticle({id: id})

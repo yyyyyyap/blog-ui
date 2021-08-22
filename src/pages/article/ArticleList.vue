@@ -8,17 +8,21 @@
           :key="item.id"
           :article="item">
         </article-item>
-        <button @click="handlePrevious" v-show="offset >= limit" class="pre-btn">previous</button>
-        <button @click="handleNext" v-show="offset + limit < articleAmount" class="next-btn">Next</button>
+        <el-button @click="handlePrevious" :disabled="offset < limit" class="pre-btn">previous</el-button>
+        <el-button @click="handleNext" :disabled="offset + limit >= articleAmount" class="next-btn">Next</el-button>
       </el-col>
       <el-col :span="6">
         <Sidebar>
           <template slot="statistic">
             <div>文章数<br>{{articleAmount}}</div>
             <el-divider direction="vertical"></el-divider>
-            <div>类别数<br>3</div>
+            <div>总类别数<br>3</div>
           </template>
           <template slot="search">
+            <el-radio-group v-model="searchType" size="small" fill="#666">
+              <el-radio-button v-model="searchType" label="1">按标题搜索</el-radio-button>
+              <el-radio-button v-model="searchType" label="2">按简介搜索</el-radio-button>
+            </el-radio-group>
             <el-input v-model="searchContent" placeholder="请输入内容" @keyup.enter.native ="handleSearch">
               <el-button slot="append" icon="el-icon-search" @click="handleSearch"></el-button>
             </el-input>
@@ -33,7 +37,7 @@
           </template>
           <template slot="updatelist">
             <p style="font-weight: bold; margin: 5px 0px">近期更新文章</p>
-            <ul @click="getUpdatedDetail" class="article-list">
+            <ul @click="getDetail" class="article-list">
               <li v-for="item in updatedList" :id="item.id" :key="item.id">
                 {{ item.title }}
               </li>
@@ -63,10 +67,14 @@ export default {
       updatedList: null,
       offset: 0,
       limit: 5,
+      searchType: '1',
+      searchTitle: '',
+      searchDesc: '',
       header: {
         maintitle: '文章列表',
         subtitle: '个人学习过程中总结的一些经验'
       },
+      totalAmount: '',
       articleAmount: '',
       searchContent: ''
     }
@@ -76,12 +84,28 @@ export default {
       this.$router.push('/article/add')
     },
     async handleSearch () {
+      this.searchTitle = this.searchType === '1' ? this.searchContent : ''
+      this.searchDesc = this.searchType === '2' ? this.searchContent : ''
+      this.offset = 0
+      this.limit = 5
       try {
-        let params = {
-          title: this.searchContent,
-          desc: ''
-        }
-        let {data} = await articleApi.searchArticle(params)
+        let {data} = await articleApi.getArticleAmount({
+          title: this.searchTitle,
+          desc: this.searchDesc
+        })
+        this.articleAmount = data.data
+      } catch (error) {
+        console.error(error)
+      }
+      try {
+        let {data} = await articleApi.getArticle({
+          sortField: 'createdAt',
+          isPos: 0,
+          offset: this.offset,
+          limit: this.limit,
+          title: this.searchTitle,
+          desc: this.searchDesc
+        })
         if (data.data.length) {
           this.articleList = data.data
         }
@@ -95,18 +119,16 @@ export default {
       let id = target.getAttribute('id')
       this.$router.push({ path: '/article/detail', query: { articleId: id } })
     },
-    getUpdatedDetail (e) {
-      let target = e.target
-      console.log(target)
-      let id = target.getAttribute('id')
-      this.$router.push({ path: '/article/detail', query: { articleId: id } })
-    },
-    async handleNext () {
+    async handleNext (e) {
       this.offset += 5
       try {
-        let {data} = await articleApi.getBatchArticle({
+        let {data} = await articleApi.getArticle({
+          sortField: 'createdAt',
+          isPos: 0,
           offset: this.offset,
-          limit: this.limit
+          limit: this.limit,
+          title: this.searchTitle,
+          desc: this.searchDesc
         })
         this.articleList = data.data
         console.log(this.articleList)
@@ -115,8 +137,13 @@ export default {
       } catch (error) {
         console.error(error)
       }
+      let target = e.target
+      if (target.nodeName === 'SPAN') {
+        target = e.target.parentNode
+      }
+      target.blur()
     },
-    async handlePrevious () {
+    async handlePrevious (e) {
       if (this.offset >= 5) {
         this.offset -= 5
         try {
@@ -124,7 +151,9 @@ export default {
             sortField: 'createdAt',
             isPos: 0,
             offset: this.offset,
-            limit: this.limit
+            limit: this.limit,
+            title: this.searchTitle,
+            desc: this.searchDesc
           })
           this.articleList = data.data
           console.log(this.articleList)
@@ -134,6 +163,11 @@ export default {
           console.error(error)
         }
       }
+      let target = e.target
+      if (target.nodeName === 'SPAN') {
+        target = e.target.parentNode
+      }
+      target.blur()
     }
   },
   async created () {
@@ -149,9 +183,10 @@ export default {
     } catch (error) {
       console.error(error)
     }
-    this.$store.commit('setHeader', this.header)
+
     try {
       let {data} = await articleApi.getArticleAmount()
+      this.totalAmount = data.data
       this.articleAmount = data.data
     } catch (error) {
       console.error(error)
@@ -178,12 +213,19 @@ export default {
     } catch (error) {
       console.error(error)
     }
+  },
+  activated () {
+    this.$store.commit('setHeader', this.header)
   }
 }
 </script>
 
 <style lang="less" scoped>
   .item-con {
+    button:hover {
+      color: white;
+      background: #666;
+    }
     .next-btn {
       float:right
     }
@@ -200,5 +242,18 @@ export default {
       color: rgba(102, 102, 102, 0.8);
       text-decoration: underline;
     }
+  }
+</style>
+
+<style lang="less">
+  .el-input__inner:focus {
+    border-color: #666;
+  }
+
+  .el-radio-group {
+    margin-bottom: 10px;
+  }
+  .el-radio-button__inner:hover {
+    color: #000;
   }
 </style>
